@@ -29,7 +29,7 @@ class ApiService {
   Future<Map<String, dynamic>> validateStudent(String studentId) async {
     try {
       // Use 10.0.2.2 for Android emulator to access host machine's localhost
-      final url = 'http://10.0.2.2:3000/student/$studentId';
+      final url = 'https://ojt-backend-llmi.onrender.com/student/$studentId';
       print('🌐 API URL: $url');
       
       final response = await http.get(
@@ -75,7 +75,7 @@ class ApiService {
       String studentId, String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/student/create'),
+        Uri.parse('https://ojt-backend-llmi.onrender.com/student/create'),
         headers: _headers,
         body: jsonEncode({
           'student_id': studentId,
@@ -98,7 +98,7 @@ class ApiService {
   Future<Map<String, dynamic>> login(String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/auth/login'),
+        Uri.parse('https://ojt-backend-llmi.onrender.com/auth/login'),
         headers: _headers,
         body: jsonEncode({
           'email': email,
